@@ -17,7 +17,7 @@ repository: ""
 
 author:
   name: "Snir Yehuda"
-  avatar: ""
+  avatar: "/assets/profile.jpg"
   bio: "Backend Software Engineer"
   location: "Tel Aviv, Israel"
   email: "mailto:sniryehud@gmail.com"
