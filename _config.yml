@@ -1,0 +1,45 @@
+remote_theme: "mmistakes/minimal-mistakes@4.28.0"
+
+plugins:
+  - jekyll-include-cache
+
+minimal_mistakes_skin: "air"
+
+locale: "en-US"
+title: "Snir Yehuda — Resume"
+title_separator: "—"
+name: "Snir Yehuda"
+description: "Backend Software Engineer specializing in scalable microservices and AI infrastructure."
+url: ""
+baseurl: ""
+
+repository: ""
+
+author:
+  name: "Snir Yehuda"
+  avatar: ""
+  bio: "Backend Software Engineer"
+  location: "Tel Aviv, Israel"
+  email: "mailto:sniryehud@gmail.com"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope"
+      url: "mailto:sniryehud@gmail.com"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/snirye"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/snir-yehuda-5996a0186/"
+
+include:
+  - _pages
+
+markdown: kramdown
+permalink: pretty
+search: false
+breadcrumbs: false
+words_per_minute: 200
+
+footer:
+  links: []
