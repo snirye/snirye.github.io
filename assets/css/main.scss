@@ -1,0 +1,248 @@
+---
+# Only the main Sass file needs front matter.
+search: false
+---
+
+@charset "utf-8";
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}";
+@import "minimal-mistakes";
+
+:root {
+  --resume-ink: #25292d;
+  --resume-muted: #687077;
+  --resume-rule: #e3e6e7;
+  --resume-accent: #257d8c;
+  --resume-paper: #fcfcfb;
+}
+
+html {
+  background: var(--resume-paper);
+}
+
+body {
+  color: var(--resume-ink);
+  background: var(--resume-paper);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.62;
+}
+
+a {
+  color: var(--resume-accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: #185d69;
+}
+
+.masthead {
+  border-bottom: 1px solid var(--resume-rule);
+  background: rgba(252, 252, 251, 0.96);
+}
+
+.masthead__inner-wrap {
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+}
+
+.greedy-nav,
+.greedy-nav .visible-links {
+  background: transparent;
+}
+
+.site-title {
+  color: var(--resume-ink);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+#main {
+  max-width: 1180px;
+}
+
+.page__title {
+  display: none;
+}
+
+.page__content {
+  max-width: 790px;
+}
+
+.page__content p,
+.page__content li,
+.page__content dl {
+  font-size: 1rem;
+}
+
+.page__content h2 {
+  margin-top: 3.2rem;
+  margin-bottom: 1.35rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid var(--resume-rule);
+  color: var(--resume-ink);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.085em;
+  text-transform: uppercase;
+}
+
+.page__content h3.resume-role {
+  margin-top: 2rem;
+  margin-bottom: 0.1rem;
+  color: var(--resume-ink);
+  font-size: 1.12rem;
+  font-weight: 750;
+  letter-spacing: -0.015em;
+}
+
+.page__content ul {
+  margin-top: 0.85rem;
+  padding-left: 1.25rem;
+}
+
+.page__content li {
+  margin-bottom: 0.58rem;
+}
+
+.resume-intro {
+  margin: 0.5rem 0 3.5rem;
+  padding-bottom: 2.4rem;
+  border-bottom: 1px solid var(--resume-rule);
+}
+
+.resume-kicker {
+  margin-bottom: 0.65rem;
+  color: var(--resume-accent);
+  font-size: 0.78rem !important;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.resume-intro h1 {
+  max-width: 720px;
+  margin: 0 0 1.1rem;
+  color: var(--resume-ink);
+  font-size: clamp(2.15rem, 5vw, 3.45rem);
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+}
+
+.resume-lede {
+  max-width: 730px;
+  margin-bottom: 0;
+  color: #42494f;
+  font-size: 1.12rem !important;
+  line-height: 1.58;
+}
+
+.resume-company {
+  display: block;
+  margin-top: 0.15rem;
+  color: var(--resume-ink);
+  font-size: 0.96rem;
+  font-weight: 650;
+}
+
+.resume-meta {
+  display: block;
+  margin-top: 0.05rem;
+  color: var(--resume-muted);
+  font-size: 0.87rem;
+}
+
+.strength-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem 2.25rem;
+}
+
+.strength-list p {
+  margin: 0;
+  color: #4e555a;
+  font-size: 0.94rem !important;
+  line-height: 1.5;
+}
+
+.strength-list strong {
+  color: var(--resume-ink);
+}
+
+.toolkit-list p {
+  margin: 0.5rem 0;
+  color: #4e555a;
+}
+
+.toolkit-list strong {
+  color: var(--resume-ink);
+}
+
+.project-link,
+.contact-link {
+  font-weight: 700;
+}
+
+.author__avatar img {
+  border: 1px solid var(--resume-rule);
+  box-shadow: none;
+}
+
+.author__name {
+  color: var(--resume-ink);
+}
+
+.author__bio,
+.author__urls-wrapper,
+.author__urls a {
+  color: var(--resume-muted);
+}
+
+.page__footer {
+  margin-top: 5rem;
+  border-top: 1px solid var(--resume-rule);
+  color: var(--resume-muted);
+  background: #f4f5f4;
+}
+
+.page__footer a,
+.page__footer-follow .social-icons .svg-inline--fa,
+.page__footer-copyright {
+  color: var(--resume-muted);
+}
+
+@media (max-width: 700px) {
+  body {
+    font-size: 16px;
+  }
+
+  .masthead__inner-wrap {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .site-title {
+    font-size: 0.82rem;
+  }
+
+  .resume-intro {
+    margin-top: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .resume-intro h1 {
+    font-size: 2.35rem;
+  }
+
+  .strength-list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .page__content h2 {
+    margin-top: 2.6rem;
+  }
+}

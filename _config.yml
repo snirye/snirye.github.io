@@ -3,24 +3,24 @@ remote_theme: "mmistakes/minimal-mistakes@4.28.0"
 plugins:
   - jekyll-include-cache
 
-minimal_mistakes_skin: "dark"
+minimal_mistakes_skin: "air"
 
 locale: "en-US"
-title: "Snir Yehuda — Resume"
+title: "Snir Yehuda"
+masthead_title: "Snir Yehuda · Backend Systems & AI Infrastructure"
 title_separator: "—"
 name: "Snir Yehuda"
 description: "Backend Software Engineer specializing in scalable microservices and AI infrastructure."
-url: ""
+url: "https://snirye.github.io"
 baseurl: ""
 
-repository: ""
+repository: "snirye/snirye.github.io"
 
 author:
   name: "Snir Yehuda"
   avatar: "/assets/profile.jpg"
-  bio: "Backend Software Engineer"
+  bio: "Senior Backend Engineer · Distributed Systems & AI Infrastructure"
   location: "Tel Aviv, Israel"
-  email: "mailto:sniryehud@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope"
