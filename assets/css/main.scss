@@ -99,6 +99,15 @@ a:hover {
   letter-spacing: -0.015em;
 }
 
+.page__content h3:not(.resume-role) {
+  margin-top: 2rem;
+  margin-bottom: 0.15rem;
+  color: var(--resume-ink);
+  font-size: 1.12rem;
+  font-weight: 750;
+  letter-spacing: -0.015em;
+}
+
 .page__content ul {
   margin-top: 0.85rem;
   padding-left: 1.25rem;
@@ -153,6 +162,10 @@ a:hover {
   margin-top: 0.05rem;
   color: var(--resume-muted);
   font-size: 0.87rem;
+}
+
+.page__content h3:not(.resume-role) + p {
+  margin-top: 0.35rem;
 }
 
 .strength-list {
