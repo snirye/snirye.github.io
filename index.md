@@ -11,93 +11,83 @@ permalink: /
   <p class="resume-lede">I design and ship distributed backend systems, AI infrastructure, and high-throughput services. Over 7+ years at monday.com, Savvy Security, and Intel, I’ve worked across AI gateways, load balancing, retrieval pipelines, security integrations, and performance-critical developer tooling.</p>
 </div>
 
-## Core strengths
+## Things I’ve Built
 
-<div class="strength-list">
-  <p><strong>Distributed systems & scale</strong><br>High-throughput services, distributed load balancing, caching, throttling, and reliability.</p>
-  <p><strong>AI platforms & retrieval</strong><br>Multi-provider AI gateways, RAG pipelines, embeddings, semantic search, and personalized context.</p>
-  <p><strong>Backend ownership</strong><br>Architecture through production, including observability, security, performance, and developer experience.</p>
-  <p><strong>Technical leadership</strong><br>Mentoring, code reviews, technical presentations, and cross-team engineering standards.</p>
-</div>
+### AI Gateway
 
-## Experience
+Built and operate the shared **AI Gateway and SDK** used by development teams across monday.com products. It gives engineers one interface for working with multiple AI providers and models without managing provider credentials or subscriptions themselves. I add model support, handle production issues, support adopting teams, track usage and costs, and maintain Datadog dashboards for reliability, latency, and cost.
 
-### Senior Backend Engineer, AI Group
-{: .resume-role}
+### Distributed AI Load Balancing
 
-<span class="resume-company">monday.com</span>
-<span class="resume-meta">2025 — Present · Tel Aviv</span>
+Designed a distributed load balancer spanning multiple providers, accounts, regions, and rate limits—for example, ten Azure accounts alongside three AWS accounts. For every model request, it finds the provider-account-region combinations that can serve the requested model and region, then selects an eligible target without exhausting a single account’s quota. Because the gateway runs across several regions and deployments, it uses consistent hashing on the session ID to keep a session routed to the same provider server.
 
-- Architect and scale monday.com’s core **AI Gateway**: the shared platform powering AI features across the product through an OpenAI-compatible interface to multiple LLM providers.
-- Built distributed **load balancing** across corporate accounts and upstream providers, improving resilience to quota pressure, provider failures, and model transitions.
-- Shipped workspace-wide **RAG and embedding pipelines** that combine product data with behavioral context to improve semantic retrieval and personalized feature suggestions.
+### Workspace RAG & Embedding Pipelines
 
-### Backend Software Engineer
-{: .resume-role}
+Built an account-level embedding pipeline that scans monday.com boards and represents their structure, including column names, column types, and sections. Search uses those embeddings to match by **semantic meaning**, improving on the lexical search that was available before and making it easier to find the right boards without knowing their exact names or wording.
 
-<span class="resume-company">Savvy Security</span>
-<span class="resume-meta">May 2022 — 2025 · Ramat Gan</span>
+### Cross-Device Playbook Throttling
 
-- Designed a transaction-safe **throttling system for 100K+ users** on Firestore and built an authentication-token cache that cut request **CPU time by ~30%**.
-- Owned critical third-party **OAuth and JWT integrations** and core backend services for a security product operating across customer environments.
-- Raised engineering quality through company-wide code reviews, technical presentations, and hands-on mentoring of junior engineers.
+Built a Firestore-backed throttling system for Savvy’s Chrome extension and its in-browser security playbooks. Administrators could show contextual warnings or block a page—for example, reminding employees not to publish private company data—without repeatedly interrupting the same user. Throttling was configurable per website, supported expiration rules such as “once a week,” and synchronized across a user’s computers.
 
-### Design Automation Engineer
-{: .resume-role}
+### Transaction-Safe Extension Coordination
 
-<span class="resume-company">Intel Corporation</span>
-<span class="resume-meta">2019 — May 2022 · Haifa</span>
+Extended the throttling mechanism to coordinate expensive extension operations across users. When an administrator visited a supported web application, the extension could discover and report every user in that customer account. Firestore transactions provided an atomic shared state so multiple administrators could not overwrite one another or trigger duplicate discovery work and unnecessary requests to the customer’s application.
 
-- Built and maintained **CAD automation and layout-verification tooling** for next-generation CPU manufacturing technologies, improving design-validation workflows used across engineering teams.
+### Authentication Token Cache
 
-## Selected work
+Built a distributed **Redis token cache** mapping extension signing tokens to user and account data, avoiding repeated token decoding on every request across multiple backend deployments. The cache respected token expiration and invalidated entries as soon as tokens expired. Using Go’s `pprof` tooling to measure the result, I found that it reduced request CPU time by **about 30%** while also providing a smaller latency improvement.
+
+### Resilient Extension Authentication
+
+Designed a low-friction authentication flow for Savvy’s Chrome extension. The extension could open the login page and reuse a recent browser session to sign the user in automatically. It continuously checked token validity and recovered safely from expiration, extension restarts, and computers waking after hours asleep, while suppressing retries so users were not bombarded with repeated login attempts.
+
+### CAD Automation Tooling
+
+Designed tools and automations for Intel’s physical-design engineers, writing **Tcl integrations for Synopsys Fusion Compiler and Cadence tooling**. We adapted existing tools and created new workflows for evolving manufacturing methods and technologies, working directly with the physical-design team to investigate bugs and refine changing requirements.
+
+### Layout Verification Workflows
+
+As part of Intel’s CCAD team, automated verification that physical designs complied with manufacturing specifications. The workflows encoded production rules into repeatable checks so engineers did not need to perform the verification manually.
 
 ### Quarto Presentation Generator
-{: .resume-role}
 
-An **AI-powered publishing pipeline** that turns long-form articles into complete Quarto RevealJS presentations. It generates slide structure and content, centralizes prompt management, and supports OpenAI, Anthropic, and local models through Ollama.
+I love creating technical presentations in Markdown, so I added AI to make better use of Quarto’s RevealJS features. The tool turns an article into a structured presentation, writes each slide with speaker notes, and outputs a renderable `.qmd` file. It supports OpenAI, Anthropic, and local Ollama models.
 
 [Explore the project →](https://github.com/snirye/quarto-presentation){: .project-link}
 
 ### wt-claude
-{: .resume-role}
 
-A **developer-workflow CLI** for managing parallel Git worktrees with Claude Code. It scans and registers repositories, creates or resumes worktrees, opens correctly scoped iTerm sessions, and applies reusable system prompts to keep AI-assisted development organized and repeatable.
+I built this before worktree support became common in IDEs, so I could work on several features in parallel without organizing every checkout by hand. The CLI creates or resumes worktrees, keeps them in a predictable location, and opens an iTerm session with Claude Code in the right directory. It also supports repository discovery and reusable system prompts.
 
 [Explore the project →](https://github.com/snirye/wt-claude){: .project-link}
 
 ### Pictionary AI
-{: .resume-role}
 
-A **local-first multimodal AI game** where a vision model guesses players’ drawings in real time. Built around Ollama vision models, with dynamic word sets, scoring, and a responsive interactive interface—demonstrating an end-to-end local AI product without cloud inference.
+I built this when Ollama first appeared as a playful demo of what a free local vision model could do. Players draw while the model guesses in real time, earning points when it gets the word right. The game carefully queues drawing updates to stay responsive despite local-model latency.
 
 [Explore the project →](https://github.com/snirye/PictionaryAI){: .project-link}
 
 ### Tcl Outline for VS Code
-{: .resume-role}
 
-A lightweight **VS Code extension for Tcl navigation** that adds nested `proc` and `namespace` symbols to the editor’s Outline view. Built to make large CAD, EDA, and automation scripts easier to understand and navigate; used by engineers at Intel and beyond.
+At Intel, our Tcl automation files often exceeded 2,000 lines and were difficult to navigate. I built this VS Code extension using regular expressions and brace matching to expose procedures and nested code in the Outline view. It now has **more than 2,000 users**.
 
 [VS Code Marketplace →](https://marketplace.visualstudio.com/items?itemName=sniryehuda.tcl-vsc-outline){: .project-link} · [Source code](https://github.com/snirye/tcl_outline_vscode)
 
 ### Fake Tab · Chrome Extension
-{: .resume-role}
 
-A published **Chrome extension** for creating harmless custom or preset “embarrassing” tabs during screen sharing. Built with Manifest V3, vanilla JavaScript, and Chrome storage APIs; it keeps recent titles locally and does not collect browsing data.
+The idea came to me while sharing my screen in a meeting: it would be funny to hide harmless “Easter eggs” among the visible tabs. The Chrome extension creates inactive tabs with preset or custom titles and emoji favicons, while remembering recent titles locally.
 
 [Chrome Web Store →](https://chromewebstore.google.com/detail/fake-tab-embarrassing-tit/bfhjffpbcehlmjahbiccimljgokdkhpc){: .project-link} · [Source code](https://github.com/snirye/fake-tab)
 
 ### Seder Boker · Kids’ Morning Routine Dashboard
-{: .resume-role}
 
-A playful **Hebrew-language web app** that helps children independently follow and complete their morning routines. Child-friendly task cards, emojis, progress indicators, completion timestamps, full-screen mode, routine editing, and history tracking make everyday tasks clear, engaging, and motivating while keeping the family experience simple and private.
+I built this Hebrew-language dashboard when summer vacation disrupted our children’s usual morning habits. We leave a device on the table, and the children mark tasks as they finish them while parents can adjust the routine. Everything stays on the device for privacy, and it became part of our real family routine.
 
 [Open the live app →](https://sederboker.co.il/){: .project-link}
 
 ### AirCondServer
-{: .resume-role}
 
-A **local-first smart-home controller** that turns an ESP8266 or ESP32 into a Wi-Fi-to-infrared bridge for Gree (Tornado) air conditioners. Includes Arduino firmware, lightweight HTTP endpoints, and a responsive browser dashboard for controlling power, operating mode, and temperature without a cloud account.
+I built this because I wanted to turn off the living-room air conditioner from bed. I hid an ESP controller and IR LED inside a lamp, aimed it at the unit, and reproduced the remote’s Gree protocol. A local browser dashboard controls power, mode, and temperature without a cloud account.
 
 [Explore the project →](https://github.com/snirye/AirCondServer){: .project-link}
 
