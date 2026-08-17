@@ -71,11 +71,21 @@ I built this when Ollama first appeared as a playful demo of what a free local v
 
 At Intel, our Tcl automation files often exceeded 2,000 lines and were difficult to navigate. I built this VS Code extension using regular expressions and brace matching to expose procedures and nested code in the Outline view. It now has **more than 2,000 users**.
 
+<figure class="project-preview">
+  <img src="{{ '/assets/projects/tcl-outline.jpg' | relative_url }}" alt="VS Code showing the Tcl Outline extension with nested symbols in the Outline panel" loading="lazy">
+  <figcaption>Nested Tcl symbols in VS Code’s Outline view.</figcaption>
+</figure>
+
 [VS Code Marketplace →](https://marketplace.visualstudio.com/items?itemName=sniryehuda.tcl-vsc-outline){: .project-link} · [Source code](https://github.com/snirye/tcl_outline_vscode)
 
 ### Fake Tab · Chrome Extension
 
 The idea came to me while sharing my screen in a meeting: it would be funny to hide harmless “Easter eggs” among the visible tabs. The Chrome extension creates inactive tabs with preset or custom titles and emoji favicons, while remembering recent titles locally.
+
+<figure class="project-preview">
+  <img src="{{ '/assets/projects/fake-tab.png' | relative_url }}" alt="Fake Tab Chrome extension open in Chrome, showing custom-title input and quick presets" loading="lazy">
+  <figcaption>Create a custom tab or choose a quick preset before screen sharing.</figcaption>
+</figure>
 
 [Chrome Web Store →](https://chromewebstore.google.com/detail/fake-tab-embarrassing-tit/bfhjffpbcehlmjahbiccimljgokdkhpc){: .project-link} · [Source code](https://github.com/snirye/fake-tab)
 
@@ -83,11 +93,21 @@ The idea came to me while sharing my screen in a meeting: it would be funny to h
 
 I built this Hebrew-language dashboard when summer vacation disrupted our children’s usual morning habits. We leave a device on the table, and the children mark tasks as they finish them while parents can adjust the routine. Everything stays on the device for privacy, and it became part of our real family routine.
 
+<figure class="project-preview">
+  <img src="{{ '/assets/projects/seder-boker.jpg' | relative_url }}" alt="Seder Boker’s Hebrew morning-routine dashboard, showing task cards and progress for two children" loading="lazy">
+  <figcaption>A focused, child-friendly routine board with independent progress tracking.</figcaption>
+</figure>
+
 [Open the live app →](https://sederboker.co.il/){: .project-link}
 
 ### AirCondServer
 
 I built this because I wanted to turn off the living-room air conditioner from bed. I hid an ESP controller and IR LED inside a lamp, aimed it at the unit, and reproduced the remote’s Gree protocol. A local browser dashboard controls power, mode, and temperature without a cloud account.
+
+<figure class="project-preview">
+  <img src="{{ '/assets/projects/aircond-server.jpg' | relative_url }}" alt="AirCondServer’s local air-conditioner dashboard with power, mode, and target-temperature controls" loading="lazy">
+  <figcaption>Local Wi-Fi control for power, operating mode, and target temperature.</figcaption>
+</figure>
 
 [Explore the project →](https://github.com/snirye/AirCondServer){: .project-link}
 

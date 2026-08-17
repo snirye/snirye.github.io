@@ -199,6 +199,30 @@ a:hover {
   font-weight: 700;
 }
 
+.project-preview {
+  margin: 1.1rem 0 1rem;
+  max-width: 26rem;
+  overflow: hidden;
+  border: 1px solid var(--resume-rule);
+  border-radius: 0.35rem;
+  background: #f4f5f4;
+}
+
+.project-preview img {
+  display: block;
+  width: 100%;
+  max-height: 17rem;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.project-preview figcaption {
+  padding: 0.5rem 0.75rem;
+  color: var(--resume-muted);
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
 .author__avatar img {
   border: 1px solid var(--resume-rule);
   box-shadow: none;
