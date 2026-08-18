@@ -1,0 +1,199 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Snir Yehuda -- Senior Backend Engineer resume
+% Compile with XeLaTeX.  This document keeps the PlushCV template used by the
+% original resume, but uses explicit pages because its minipage columns do not
+% flow naturally across a page break.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\PassOptionsToPackage{inline}{enumitem}
+\documentclass[]{plushcv}
+\usepackage{fancyhdr}
+\usepackage[none]{hyphenat}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+
+% A comma-separated list rendered as bullet-separated text.
+\makeatletter
+\newcommand{\bullets}[1]{%
+  \def\@skillsep{\,\textbullet\,}%
+  \@tempswatrue
+  \@for\@tempa:=#1\do{%
+    \if@tempswa
+      \@tempswafalse
+      \@tempa
+    \else
+      \@skillsep \@tempa
+    \fi
+  }%
+}
+\makeatother
+
+\begin{document}
+
+\namesection{Snir}{Yehuda}{Senior Backend Software Engineer}{%
+  \contactline
+    {\href{mailto:sniryehud@gmail.com}{SnirYehud@gmail.com}}%
+    {\href{tel:0523081466}{052-308-1466}}%
+    {\href{https://www.linkedin.com/in/snir-yehuda-5996a0186/}{LinkedIn}}%
+    {\href{https://github.com/snirye}{github.com/snirye}}}
+
+\begin{minipage}[t]{0.70\textwidth}
+
+\section*{Professional Summary}
+Senior Backend Software Engineer with 7+ years of experience building scalable
+microservices, distributed systems, and AI infrastructure. Specializes in
+high-throughput AI gateways, resilient load balancing, retrieval pipelines, and
+security-sensitive integrations. Brings end-to-end ownership from architecture
+and implementation through production operations, performance analysis, and
+mentoring.
+
+\section{Experience}
+
+\runsubsection{monday.com}
+\descript{| Senior Backend Engineer, AI Group}
+\location{2025 -- Present | Tel Aviv}
+\vspace{\topsep}
+\begin{tightemize}
+  \sectionsep
+  \item Built and operate the shared \textbf{AI Gateway and SDK} used by development teams across monday.com products, providing one OpenAI-compatible interface for multiple LLM providers and models.
+  \item Own production adoption and operations for the platform: add model support, resolve incidents, help product teams integrate, and maintain Datadog dashboards for reliability, latency, usage, and cost.
+  \item Designed a distributed \textbf{AI load balancer} across providers, accounts, regions, and rate limits. It selects an eligible provider--account--region target per request while protecting quotas and supporting model updates without disrupting clients.
+  \item Used consistent hashing on session IDs to keep traffic from multi-region gateway deployments pinned to the same provider server, improving stability for stateful request flows.
+  \item Built an account-level \textbf{embedding pipeline} that represents monday.com board structure---including columns, types, and sections---to enable semantic board discovery beyond exact-name or lexical search.
+\end{tightemize}
+\sectionsep
+
+\runsubsection{Savvy Security}
+\descript{| Backend Software Engineer}
+\location{May 2022 -- 2025 | Ramat Gan}
+\vspace{\topsep}
+\begin{tightemize}
+  \sectionsep
+  \item Designed a Firestore-backed, cross-device \textbf{throttling system} for Chrome-extension security playbooks, scaling to \textbf{100K+ users}. Configurable website rules and expiration windows prevented repeated interruptions while preserving timely security guidance.
+  \item Extended the mechanism with Firestore transactions to coordinate expensive extension work across administrators in the same customer account, preventing duplicate discovery requests and conflicting shared state.
+  \item Built a distributed \textbf{Redis authentication-token cache} across backend deployments. It mapped signing tokens to user and account data, respected token expiration, and reduced request CPU time by \textbf{about 30\%}, measured with Go \texttt{pprof}.
+  \item Designed a resilient extension authentication flow that reused browser sessions for low-friction sign-in and safely recovered from token expiry, extension restarts, and devices waking after long sleeps without retry storms.
+  \item Owned critical third-party \textbf{OAuth and JWT} integrations and core backend microservices; strengthened engineering practice through mentoring, company-wide code reviews, and technical presentations.
+\end{tightemize}
+\sectionsep
+
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.25\textwidth}
+
+\section{Core Skills}
+\runsubsection{Languages}
+\sectionsep
+\bullets{Go, TypeScript, Node.js, Python, C++, SQL} \\
+\sectionsep
+\location{Additional: JavaScript, Zig, Tcl, C, Bash, Assembly, Java}
+\sectionsep
+
+\runsubsection{AI \& Data}
+\sectionsep
+\bullets{AI gateways, LLM APIs, RAG, embeddings, OpenAI API, LangChain, Ollama}
+\sectionsep
+
+\runsubsection{Systems}
+\sectionsep
+\bullets{GCP, Docker, Linux, Firestore, Redis, NoSQL, REST, caching, load balancing}
+\sectionsep
+
+\runsubsection{Strengths}
+\sectionsep
+\bullets{Platform ownership, distributed systems, performance analysis, security integrations, mentoring}
+\sectionsep
+
+\section{Education}
+\runsubsection{Bar-Ilan University}
+\descript{B.Eng. Computer Engineering}
+\location{2022 | Givat Shmuel}
+\location{GPA: 90}
+\sectionsep
+
+\end{minipage}
+
+\newpage
+
+\namesection{Snir}{Yehuda}{Senior Backend Software Engineer}{%
+  \contactline
+    {\href{mailto:sniryehud@gmail.com}{SnirYehud@gmail.com}}%
+    {\href{tel:0523081466}{052-308-1466}}%
+    {\href{https://www.linkedin.com/in/snir-yehuda-5996a0186/}{LinkedIn}}%
+    {\href{https://github.com/snirye}{github.com/snirye}}}
+
+\begin{minipage}[t]{0.70\textwidth}
+
+\section{Experience Continued}
+
+\runsubsection{Intel Corporation}
+\descript{| Design Automation Engineer, CCAD}
+\location{2019 -- May 2022 | Haifa}
+\vspace{\topsep}
+\begin{tightemize}
+  \sectionsep
+  \item Developed and maintained \textbf{CAD automation} and layout-verification workflows for next-generation CPU manufacturing technologies.
+  \item Wrote Tcl integrations for Synopsys Fusion Compiler and Cadence tooling, adapting existing systems and creating new workflows as manufacturing methods and design requirements evolved.
+  \item Partnered directly with physical-design engineers to investigate failures, encode manufacturing requirements into repeatable checks, and improve validation accuracy and team productivity.
+\end{tightemize}
+\sectionsep
+
+\section{Selected Projects}
+
+\runsubsection{\href{https://github.com/snirye/quarto-presentation}{Quarto Presentation Generator}}
+\begin{tightemize}
+  \sectionsep
+  \item Built an \textbf{AI-powered} service that turns an article into a structured Quarto RevealJS presentation, including slide content, structure, speaker notes, and a renderable \texttt{.qmd} output.
+  \item Added centralized prompt management and multi-model support for OpenAI, Anthropic, and local Ollama models.
+\end{tightemize}
+\sectionsep
+
+\runsubsection{\href{https://github.com/snirye/wt-claude}{wt-claude}}
+\begin{tightemize}
+  \sectionsep
+  \item Created a CLI for parallel development with Git worktrees: it creates or resumes worktrees in a predictable location and opens an iTerm session running Claude Code in the correct directory.
+  \item Added repository discovery and reusable system prompts to make the workflow practical across multiple projects.
+\end{tightemize}
+\sectionsep
+
+\runsubsection{\href{https://marketplace.visualstudio.com/items?itemName=sniryehuda.tcl-vsc-outline}{Tcl Outline for VS Code}}
+\begin{tightemize}
+  \sectionsep
+  \item Built a VS Code extension for navigating large Tcl automation files, using regular expressions and brace matching to expose procedures and nested code in the Outline view.
+  \item Originated from Intel automation files often exceeding 2,000 lines; the extension has \textbf{2,000+ users}.
+\end{tightemize}
+\sectionsep
+
+\runsubsection{\href{https://github.com/snirye/PictionaryAI}{Pictionary AI}}
+\begin{tightemize}
+  \sectionsep
+  \item Built a real-time drawing game powered by a local Ollama vision model; queues drawing updates to keep the experience responsive despite local-model inference latency.
+\end{tightemize}
+\sectionsep
+
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.25\textwidth}
+
+\section{Additional Work}
+\runsubsection{Open Source}
+\sectionsep
+\location{GitHub: \href{https://github.com/snirye}{github.com/snirye}}
+\sectionsep
+
+\runsubsection{Focus Areas}
+\sectionsep
+\bullets{AI infrastructure, developer platforms, backend reliability, developer tooling}
+\sectionsep
+
+\section{Contact}
+\location{Tel Aviv, Israel}
+\sectionsep
+\location{\href{mailto:sniryehud@gmail.com}{SnirYehud@gmail.com}}
+\sectionsep
+\location{\href{https://www.linkedin.com/in/snir-yehuda-5996a0186/}{LinkedIn}}
+\sectionsep
+
+\end{minipage}
+
+\end{document}
