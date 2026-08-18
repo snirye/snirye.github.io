@@ -55,10 +55,8 @@ mentoring.
 \vspace{\topsep}
 \begin{tightemize}
   \sectionsep
-  \item Built and operate the shared \textbf{AI Gateway and SDK} used by development teams across monday.com products, providing one OpenAI-compatible interface for multiple LLM providers and models.
-  \item Own production adoption and operations for the platform: add model support, resolve incidents, help product teams integrate, and maintain Datadog dashboards for reliability, latency, usage, and cost.
-  \item Designed a distributed \textbf{AI load balancer} across providers, accounts, regions, and rate limits. It selects an eligible provider--account--region target per request while protecting quotas and supporting model updates without disrupting clients.
-  \item Used consistent hashing on session IDs to keep traffic from multi-region gateway deployments pinned to the same provider server, improving stability for stateful request flows.
+  \item Built and operate the shared \textbf{AI Gateway and SDK} used across monday.com products, providing one OpenAI-compatible interface for multiple LLM providers and models. Own production adoption and operations, including model support, incident response, integration support, and reliability and cost monitoring.
+  \item Designed a distributed \textbf{AI load balancer} across providers, accounts, regions, and rate limits. It protects quotas while consistent hashing keeps sessions from multi-region gateway deployments pinned to the same provider server.
   \item Built an account-level \textbf{embedding pipeline} that represents monday.com board structure---including columns, types, and sections---to enable semantic board discovery beyond exact-name or lexical search.
 \end{tightemize}
 \sectionsep
@@ -69,11 +67,9 @@ mentoring.
 \vspace{\topsep}
 \begin{tightemize}
   \sectionsep
-  \item Designed a Firestore-backed, cross-device \textbf{throttling system} for Chrome-extension security playbooks, scaling to \textbf{100K+ users}. Configurable website rules and expiration windows prevented repeated interruptions while preserving timely security guidance.
-  \item Extended the mechanism with Firestore transactions to coordinate expensive extension work across administrators in the same customer account, preventing duplicate discovery requests and conflicting shared state.
-  \item Built a distributed \textbf{Redis authentication-token cache} across backend deployments. It mapped signing tokens to user and account data, respected token expiration, and reduced request CPU time by \textbf{about 30\%}, measured with Go \texttt{pprof}.
-  \item Designed a resilient extension authentication flow that reused browser sessions for low-friction sign-in and safely recovered from token expiry, extension restarts, and devices waking after long sleeps without retry storms.
-  \item Owned critical third-party \textbf{OAuth and JWT} integrations and core backend microservices; strengthened engineering practice through mentoring, company-wide code reviews, and technical presentations.
+  \item Designed a Firestore-backed, cross-device \textbf{throttling system} for Chrome-extension security playbooks, scaling to \textbf{100K+ users}. Added transactional coordination across administrators to prevent duplicate work and conflicting shared state.
+  \item Initiated and built a distributed \textbf{Redis authentication-token cache} across backend deployments. It respected token expiration and reduced request CPU time by \textbf{about 30\%}, measured with Go \texttt{pprof}.
+  \item Designed a resilient extension authentication flow that reused browser sessions for low-friction sign-in and recovered safely from token expiry, extension restarts, and devices waking after long sleeps. Owned critical third-party \textbf{OAuth and JWT} integrations and core backend services.
 \end{tightemize}
 \sectionsep
 
@@ -96,7 +92,7 @@ mentoring.
 
 \runsubsection{Systems}
 \sectionsep
-\bullets{GCP, Docker, Linux, Firestore, Redis, NoSQL, REST, caching, load balancing}
+\bullets{GCP, Docker, Linux, Firestore, Redis, Datadog, NoSQL, REST, caching, load balancing}
 \sectionsep
 
 \runsubsection{Strengths}
@@ -169,29 +165,6 @@ mentoring.
   \sectionsep
   \item Built a real-time drawing game powered by a local Ollama vision model; queues drawing updates to keep the experience responsive despite local-model inference latency.
 \end{tightemize}
-\sectionsep
-
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.25\textwidth}
-
-\section{Additional Work}
-\runsubsection{Open Source}
-\sectionsep
-\location{GitHub: \href{https://github.com/snirye}{github.com/snirye}}
-\sectionsep
-
-\runsubsection{Focus Areas}
-\sectionsep
-\bullets{AI infrastructure, developer platforms, backend reliability, developer tooling}
-\sectionsep
-
-\section{Contact}
-\location{Tel Aviv, Israel}
-\sectionsep
-\location{\href{mailto:sniryehud@gmail.com}{SnirYehud@gmail.com}}
-\sectionsep
-\location{\href{https://www.linkedin.com/in/snir-yehuda-5996a0186/}{LinkedIn}}
 \sectionsep
 
 \end{minipage}
