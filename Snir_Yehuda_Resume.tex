@@ -12,6 +12,11 @@
 \fancyhf{}
 \renewcommand{\headrulewidth}{0pt}
 
+% Preserve the conventional casing of brand and language names inside the
+% template's uppercase subsection headings.
+\newcommand{\mondaybrand}{monday.com}
+\newcommand{\tclbrand}{Tcl}
+
 % A comma-separated list rendered as bullet-separated text.
 \makeatletter
 \newcommand{\bullets}[1]{%
@@ -35,7 +40,8 @@
     {\href{mailto:sniryehud@gmail.com}{SnirYehud@gmail.com}}%
     {\href{tel:0523081466}{052-308-1466}}%
     {\href{https://www.linkedin.com/in/snir-yehuda-5996a0186/}{LinkedIn}}%
-    {\href{https://github.com/snirye}{github.com/snirye}}}
+    {\href{https://github.com/snirye}{GitHub}}%
+    {\href{https://snirye.github.io/}{snirye.github.io}}}
 
 \begin{minipage}[t]{0.70\textwidth}
 
@@ -49,14 +55,14 @@ mentoring.
 
 \section{Experience}
 
-\runsubsection{monday.com}
+\runsubsection{\mondaybrand}
 \descript{| Senior Backend Engineer, AI Group}
 \location{2025 -- Present | Tel Aviv}
 \vspace{\topsep}
 \begin{tightemize}
   \sectionsep
-  \item Built and operate the shared \textbf{AI Gateway and SDK} used across monday.com products, providing one OpenAI-compatible interface for multiple LLM providers and models. Own production adoption and operations, including model support, incident response, integration support, and reliability and cost monitoring.
-  \item Designed a distributed \textbf{AI load balancer} across providers, accounts, regions, and rate limits. It protects quotas while consistent hashing keeps sessions from multi-region gateway deployments pinned to the same provider server.
+  \item Built and operated the shared \textbf{AI Gateway and SDK} used across monday.com products, providing one OpenAI-compatible interface for multiple LLM providers and models. Owned production adoption and operations, including model support, incident response, integration support, and reliability and cost monitoring.
+  \item Designed a distributed \textbf{AI load balancer} across providers, accounts, regions, and rate limits. It protects quotas while consistent hashing keeps sessions from multi-region gateway deployments pinned to the same provider endpoint.
   \item Built an account-level \textbf{embedding pipeline} that represents monday.com board structure---including columns, types, and sections---to enable semantic board discovery beyond exact-name or lexical search.
 \end{tightemize}
 \sectionsep
@@ -116,7 +122,8 @@ mentoring.
     {\href{mailto:sniryehud@gmail.com}{SnirYehud@gmail.com}}%
     {\href{tel:0523081466}{052-308-1466}}%
     {\href{https://www.linkedin.com/in/snir-yehuda-5996a0186/}{LinkedIn}}%
-    {\href{https://github.com/snirye}{github.com/snirye}}}
+    {\href{https://github.com/snirye}{GitHub}}%
+    {\href{https://snirye.github.io/}{snirye.github.io}}}
 
 \begin{minipage}[t]{0.70\textwidth}
 
@@ -152,18 +159,18 @@ mentoring.
 \end{tightemize}
 \sectionsep
 
-\runsubsection{\href{https://marketplace.visualstudio.com/items?itemName=sniryehuda.tcl-vsc-outline}{Tcl Outline for VS Code}}
+\runsubsection{\href{https://marketplace.visualstudio.com/items?itemName=sniryehuda.tcl-vsc-outline}{\tclbrand{} Outline for VS Code}}
 \begin{tightemize}
   \sectionsep
   \item Built a VS Code extension for navigating large Tcl automation files, using regular expressions and brace matching to expose procedures and nested code in the Outline view.
-  \item Originated from Intel automation files often exceeding 2,000 lines; the extension has \textbf{2,000+ users}.
+  \item Originated from Intel automation files often exceeding 2,000 lines; the extension has \textbf{2K+ Marketplace installs}.
 \end{tightemize}
 \sectionsep
 
 \runsubsection{\href{https://github.com/snirye/PictionaryAI}{Pictionary AI}}
 \begin{tightemize}
   \sectionsep
-  \item Built a real-time drawing game powered by a local Ollama vision model; queues drawing updates to keep the experience responsive despite local-model inference latency.
+  \item Built a real-time drawing game powered by a local Ollama vision model, using a queue for drawing updates to keep the experience responsive despite inference latency.
 \end{tightemize}
 \sectionsep
 

@@ -211,12 +211,13 @@ Last Updated on \today
 \color{headings}\raggedright\fontspec[Path = \pathlocationfont]{\locationfont}\fontsize{\locationsize}{12pt}\selectfont {#1\\} \normalfont}
 
 %Contact Line
-\newcommand{\contactline}[4]{\begingroup
+\newcommand{\contactline}[5]{\begingroup
 \setbox0=\hbox{
 \includegraphics[scale=0.23,trim={1.4cm 1.25cm -0.4cm 0cm}]{icons/main/mail.png}{#1}\hspace{0.3cm}
 \includegraphics[scale=0.23,trim={0cm 1.25cm -0.4cm 0cm}]{icons/main/phone.png}{#2}\hspace{0.3cm}
 \includegraphics[scale=0.23,trim={0cm 1.25cm -0.4cm 0cm}]{icons/main/linkedin.png}{#3}\hspace{0.3cm}
 \includegraphics[scale=0.23,trim={0cm 1.25cm -0.4cm 0cm}]{icons/main/github.png}{#4}\hspace{0.3cm}
+\includegraphics[scale=0.23,trim={0cm 1.25cm -0.4cm 0cm}]{icons/main/home.png}{#5}\hspace{0.3cm}
 }\parbox{\wd0}{\box0}\endgroup} 
 
 %Inline Centered Logo
@@ -227,6 +228,5 @@ Last Updated on \today
 
 % Bullet Lists with fewer gaps command
 \newenvironment{tightemize}{
-\vspace{-\topsep}\begin{itemize}[label=\ding{212}]\itemsep1pt \parskip0pt \parsep0pt}
+\vspace{-\topsep}\begin{itemize}[label=\textbullet]\itemsep1pt \parskip0pt \parsep0pt}
 {\end{itemize}\vspace{-\topsep}}
-
